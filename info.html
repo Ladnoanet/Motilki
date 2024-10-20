@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мотыльки</title>
+    <style>
+        body {
+            height: 50vh;
+            background: linear-gradient(to bottom, #fff4e2 0%, rgba(255, 244, 226, 0) 70%);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(0, 0, 0);
+        }
+
+        .cam {
+            background-color: white;
+            width: 106px;
+            height: 106px;
+            margin-left: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 50px;
+            margin-top: 26px;
+            margin-left: 26px;
+        }
+
+        .name {
+            width: 97%;
+            height: 25px;
+            border: 2px solid #f8e0ba;
+            outline: none;
+            border-radius: 10px;
+        }
+
+        button {
+            text-decoration: none;
+            font-size: 20px;
+            background-color: #f8e0ba;
+            padding: 10px 20px;
+            height: 40px;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            text-align: center;
+            line-height: 0px;
+        }
+
+        button.active {
+            background-color: #c6ae88;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            background-color: #f8e0ba;
+            padding: 6px 20px;
+            height: 30px;
+            color: black;
+            border-radius: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<center><h3>Это ваш профиль</h3></center>
+<br>
+<div class="cam" id="colorDiv">
+    <svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 -960 960 960" width="120px" fill="#FFFFFF">
+        <path d="M353.77-383q-22.77 0-38.27-15.73-15.5-15.72-15.5-38.5 0-22.77 15.73-38.27 15.72-15.5 38.5-15.5 22.77 0 38.27 15.73 15.5 15.72 15.5 38.5 0 22.77-15.73 38.27-15.72 15.5-38.5 15.5Zm253 0q-22.77 0-38.27-15.73-15.5-15.72-15.5-38.5 0-22.77 15.73-38.27 15.72-15.5 38.5-15.5 22.77 0 38.27 15.73 15.5 15.72 15.5 38.5 0 22.77-15.73 38.27-15.72 15.5-38.5 15.5ZM480-140q142.38 0 241.19-98.95T820-480.47q0-25.53-4-50.53t-10-46q-20 5-43.26 7-23.26 2-48.74 2-97.11 0-183.56-40Q444-648 383-722q-34 81-97.5 141.5T140-487v7q0 142.37 98.81 241.19Q337.63-140 480-140Zm0 60q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-92-727q88 103 162.5 141T714-628q24 0 38-1t31-6q-45-81-122.5-133T480-820q-27 0-51 4t-41 9ZM149-558q48-18 109.5-81.5T346-793q-87 39-131.5 99.5T149-558Zm239-249Zm-42 14Z"/>
+    </svg>
+</div>
+<h3 class="text-left">Как вас зовут?</h3>
+<input class="name" id="nameInput" type="text" placeholder="Имя">
+<h3>Какие ваши интересы?</h3>
+<button onclick="toggleInterest(this)">Общение</button>
+<button onclick="toggleInterest(this)">Игры</button>
+<button onclick="toggleInterest(this)">Помощь</button>
+<button onclick="toggleInterest(this)">Фото</button>
+<button onclick="toggleInterest(this)">Друзья</button>
+<button onclick="toggleInterest(this)">Прогулка</button>
+<button onclick="toggleInterest(this)">Поддержка</button><br><br><br>
+<center><a href="account.html" onclick="saveProfile()">Сохранить</a></center><br>
+
+<script>
+
+    function toggleInterest(button) {
+        button.classList.toggle('active');
+    }
+
+    function saveProfile() {
+        const name = document.getElementById('nameInput').value;
+        const interests = Array.from(document.querySelectorAll('button.active')).map(button => button.innerText);
+
+        localStorage.setItem('username', name);
+        localStorage.setItem('interests', JSON.stringify(interests));
+
+    }
+
+    window.onload = function() {
+        const colorDiv = document.getElementById('colorDiv');
+        const savedColor = localStorage.getItem('backgroundColor');
+        if (savedColor) {
+            colorDiv.style.backgroundColor = savedColor;
+        }
+
+        const savedName = localStorage.getItem('username');
+        const savedInterests = JSON.parse(localStorage.getItem('interests')) || [];
+
+        if (savedName) {
+            document.getElementById('nameInput').value = savedName;
+        }
+
+        savedInterests.forEach(interest => {
+            const button = Array.from(document.querySelectorAll('button')).find(btn => btn.innerText === interest);
+            if (button) {
+                button.classList.add('active');
+            }
+        });
+    };
+
+    function changeColor(color) {
+        const colorDiv = document.getElementById('colorDiv');
+        colorDiv.style.backgroundColor = color;
+        localStorage.setItem('backgroundColor', color);
+    }
+</script>
+
+<script>
+        function checkWindowSize() {
+        if (window.innerWidth > 300) {
+            window.location.href = "error.html";
+        }
+    }
+
+    checkWindowSize();
+
+    window.addEventListener('resize', checkWindowSize);
+</script>
+</body>
+</html>
