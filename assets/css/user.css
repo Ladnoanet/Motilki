@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FFD9BF;
+    font-family: 'IBM Plex Sans';
+    overflow-x: hidden;
+}
+
+.head {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 62px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 0 15px rgba(210, 105, 30, 0.176);
+}
+
+.head img {
+    width: 40px;
+}
+
+.banner {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.banner img {
+    height: 110%;
+    z-index: 10;
+    position: relative;
+}
+
+main {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: relative;
+    padding-top: 15px; padding-bottom: 15px;
+    box-sizing: border-box;
+    padding-left: 15px; padding-right: 15px;
+}
+
+.sobrano {
+    background-color: #F1F6F9;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.sobrano a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    height: 37px;
+    width: 37px;
+    text-align: center;
+    line-height: 37px;
+    font-size: larger;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(210, 105, 30, 0.176);
+}
+
+.card {
+    background-color: white;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+    padding-left: 15px; padding-right: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #0000001e;
+    margin-top: 20px;
+}
+
+.card .img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .img .user-icon {
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:25px;
+    color: white;
+}
+
+.card .img h4 {
+    width: 145px;
+}
+
+.card a {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: coral;
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 15px;
+    width: 90%;
+    height: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #F1F6F9;
+    z-index: 1000;
+    box-shadow: 0 0px 20px #0000003c;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+footer a {
+    display: block;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    border-radius: 30px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: larger;
+}
+
+.active {
+    background-color: coral;
+    color: white;
+}
+
+.name {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #F1F6F9;
+    border: 0;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.interes-button {
+    text-decoration: none;
+    font-size: 15px;
+    background-color: #F1F6F9;
+    padding: 10px 10px;
+    height: 40px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 0px;
+}
+
+.interes-button.active {
+    background-color: coral;
+    color: white;
+}
+
+.save {
+    margin: auto;
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    height: 45px;
+    background-color: coral;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.KaspiDonat {
+    margin: auto;
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    height: 45px;
+    background-color: coral;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
